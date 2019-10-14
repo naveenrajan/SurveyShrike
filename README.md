@@ -8,6 +8,8 @@ This application is buit using the followin tech stack:
   5) Behave & Allure test framework for Python tests
   
 ![Folder Structure](https://github.com/naveenrajan/SurveyShrike/blob/master/Templates/Folder_structure.png)
+![Architecture Diagram](https://github.com/naveenrajan/SurveyShrike/blob/master/Templates/Architecture_diagram.jpg)
+
   
 The purpose of the application is to help any authenticated user to perform the following operations :
 

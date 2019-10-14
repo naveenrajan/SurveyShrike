@@ -1,4 +1,4 @@
-# SurveyShrike Survey Form Generator
+SurveyShrike Survey Form Generator
 This application is buit using the followin tech stack:
 
   1) HTML,CSS, Java Sript - Front End
@@ -7,7 +7,6 @@ This application is buit using the followin tech stack:
   4) Oath2.0 - Authentication protocol
   5) Behave & Allure test framework for Python tests
   
-![Folder Structure](https://github.com/naveenrajan/SurveyShrike/blob/master/Templates/Folder_structure.png)
   
 The purpose of the application is to help any authenticated user to perform the following operations :
 

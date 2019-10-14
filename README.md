@@ -10,6 +10,8 @@ This application is buit using the followin tech stack:
 ![Folder Structure](https://github.com/naveenrajan/SurveyShrike/blob/master/Templates/Folder_structure.png)
 
 
+# Architecture Diagram
+
 ![Architecture Diagram](https://github.com/naveenrajan/SurveyShrike/blob/master/Templates/Architecture_diagram.jpg)
 
   

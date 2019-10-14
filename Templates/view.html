@@ -1,0 +1,157 @@
+<html>
+<head>
+<style>
+/*	
+	Side Navigation Menu V2, RWD
+	===================
+	License:
+	https://goo.gl/EaUPrt
+	===================
+	Author: @PableraShow
+
+ */
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#000;
+  background-color:#fff;
+}
+
+h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #fff;
+}
+
+h2 {
+  font-size:1em; 
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #fff;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+.teal { color: #009688;} }
+.yellow { color: #FFF842; }
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #fff;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	  background-color: #fff;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	  background-color: #f0f0f0;
+}
+
+.container th {
+	  background-color:  #009688;
+}
+
+.container td:first-child { color: #009688; }
+
+.container tr:hover {
+   background-color: #00524a;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #009688;
+  color: #fff;
+  font-weight: bold;
+  
+  box-shadow: #00211e -1px 1px, #00211e -2px 2px, #00211e -3px 3px, #00211e -4px 4px, #00211e -5px 5px, #00211e -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+</style>
+</head>
+<body>
+<h1><span class="teal">All</span> <span class="teal">Surveys</pan></h1>
+
+<form id="myForm" method="POST">
+<table class="container">
+	<thead>
+		<tr>
+			<th><h1>Survey #</h1></th>
+			<th><h1>Name</h1></th>
+			<th><h1>Creator</h1></th>
+			<th><h1>Date</h1></th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for row in value %} 
+		<tr onclick="redirectURL({{row[0]}});">		
+			<td>{{row[0]}}</a></td>
+			<td>{{row[1]}}</td>
+			<td>{{row[2]}}</td>
+			<td>{{row[3]}}</td>
+		</tr>	
+	{% endfor %}
+	</tbody>
+</table>
+</form>
+<script>
+function redirectURL(selectedId){
+window.location = "/survey?rowData="+selectedId
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  font-family:"Calibri";
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #009688;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+li{
+  display: block;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+li:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.bold{
+	font-weight: bold;
+}
+</style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<ul>
+<br>
+<strong> <font style="padding:8px" face="Calibri" size="4" color="white">Select desired input :</font></strong>
+  <li id="sli">Single Line Input</li>
+  <li id="mli">Multi Line Input</li>
+  <li id="dd">Dropdown</li>
+  <li id="r">Radio</li>
+  <li id="cb">Checkbox</li>
+  <li id="uf">Upload File</li>
+  <li id="ht">HTML(Read only)</li>
+  <li id="ep">Expression</li>
+  <li id="rt">Ratings</li>
+  <li id="pn">Panel</li>
+  <li id="im">Image Picker</li>
+  <li id="im">Matrix</li>
+  <li id="im">Comment</li>
+  <li id="im">Boolean</li>
+</ul>
+<form method="post" action="">
+<div id="outerpane" style="margin-left:15%;padding:1px 16px;">
+<div id="innerpane" class="w3-card-4">
+  <div class="w3-container w3-teal">
+    <h2><center>SurveyShrike</center></h2>
+  </div> 
+    <p style="padding:1px 16px;">      
+    <label class="w3-text-teal"><b>Survey Name</b></label>
+    <input class="w3-input w3-border w3-light-grey" name="survey_name" type="text" required></p>
+    <p style="padding:1px 16px;padding-bottom: 10px;">        
+    <label class="w3-text-teal"><b>Your Name</b></label>
+    <input class="w3-input w3-border w3-light-grey" name="your_name" type="text" required></p>
+</div>
+<div id="pane" style="height: auto;">
+</div>
+<p style="padding:1px 500px;"> 
+<input type="submit" class="w3-btn w3-teal" name="submit">
+</div>
+</form>
+<script type="text/javascript">
+var questionNumber = 0;
+var pane = document.getElementById('pane');
+    document.getElementById("sli").addEventListener("click",function (){					
+					addSli();    
+    });
+	document.getElementById("mli").addEventListener("click",function (){
+					addMli();    
+    });
+	document.getElementById("dd").addEventListener("click",function (){
+					addDropdown();    
+    });
+	
+	document.getElementById("r").addEventListener("click",function (){
+					addRadio();    
+    });
+	document.getElementById("cb").addEventListener("click",function (){
+					addCheckBox();    
+    });
+	
+	function addHeading(){
+	var heading = document.createElement('h4');	
+	questionNumber = questionNumber+1;
+	heading.innerHTML = "Question "+questionNumber+":";	
+	heading.classList.add("w3-text-teal");
+	heading.classList.add("bold");
+	return heading;
+	};
+	function getFieldType(type){
+	var fieldType = document.createElement('p');	
+	fieldType.innerHTML = "Input Field: "+type;	
+	fieldType.classList.add("w3-text-teal");
+	return fieldType;
+	};
+	function margin(){
+	var margin = document.createElement('hr');
+	return margin;
+	}
+	function lineBreak(){
+	var lineBreak = document.createElement('br');
+	return lineBreak;
+	}
+	
+	function getTextArea(type){
+	var textArea = document.createElement('textarea');
+	textArea.setAttribute("rows","4");
+	textArea.setAttribute("cols","30");
+	textArea.setAttribute("name","qn"+questionNumber+"_"+type);
+	textArea.required= true;
+	return textArea;
+	};
+	
+	function addQuestion(type,typename){
+	pane.appendChild(addHeading());	
+	pane.appendChild(getFieldType(typename));	
+	pane.appendChild(getTextArea(type));
+	}
+	
+	function getTextBox(isAdd,qnNum){
+	var textBox = document.createElement('input');
+		textBox.setAttribute("type","text");
+		textBox.setAttribute("name","qn"+qnNum+"_op");
+		textBox.required= true;
+		if(isAdd===true){
+		textBox.style.float = 'left';
+		}
+		return textBox;
+	};
+	
+	function getAddButton(qnNum){
+	var plusBtn = document.createElement('input');
+		plusBtn.setAttribute("type","button");
+		plusBtn.setAttribute("value","+");
+		plusBtn.setAttribute("id","add"+qnNum);
+		plusBtn.addEventListener('click',plusBtnEventListener,false);
+		return plusBtn;
+	};
+	
+	function getRemoveButton(){
+	var removeBtn = document.createElement('input');
+		removeBtn.setAttribute("type","button");
+		removeBtn.setAttribute("id","remove");
+		removeBtn.setAttribute("value","-");
+		return removeBtn;
+		};
+		function getDiv(){
+		var div = document.createElement('div');
+		return div;
+		}
+		
+	function getDynamicTextBox(div,qnNum,isAdd){	
+	var currentDiv = div;
+	currentDiv.appendChild(getTextBox(isAdd,qnNum));
+	if( isAdd === true){
+	currentDiv.appendChild(getAddButton(qnNum));
+	} 
+	currentDiv.appendChild(lineBreak());
+	currentDiv.classList.add('w3-container');
+	return currentDiv;
+	};
+	
+	function plusBtnEventListener(){					
+	var div = document.getElementById(this.id).parentElement;
+    var qnNum = this.id.slice(-1);	
+	getDynamicTextBox(div,qnNum,false);				    
+    };
+	
+	function addSli(){
+	addQuestion("sli","Single Line Input");	
+	pane.appendChild(lineBreak());
+	pane.appendChild(margin());		
+	};
+	
+	function addMli(){
+	addQuestion("mli","Multi Line Input");	
+	pane.appendChild(lineBreak());
+	pane.appendChild(margin());	
+	};
+	
+	function addDropdown(){
+	addQuestion("dd","Dropdown");	
+	var textBoxContainer = getDiv();
+	var qnNum = questionNumber;
+	pane.appendChild(getDynamicTextBox(textBoxContainer,qnNum,true));
+	pane.appendChild(lineBreak());
+	pane.appendChild(margin());
+	};
+	
+	function addRadio(){
+	addQuestion("r","Radio");	
+	var textBoxContainer = getDiv();
+	var qnNum = questionNumber;
+	pane.appendChild(getDynamicTextBox(textBoxContainer,qnNum,true));
+	pane.appendChild(lineBreak());
+	pane.appendChild(margin());
+	};
+	
+	function addCheckBox(){
+	addQuestion("cb","Checkbox");	
+	var textBoxContainer = getDiv();
+	var qnNum = questionNumber;
+	pane.appendChild(getDynamicTextBox(textBoxContainer,qnNum,true));	
+	pane.appendChild(lineBreak());
+	pane.appendChild(margin());
+	};
+</script>
+</body>
+</html>

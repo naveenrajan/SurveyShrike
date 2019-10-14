@@ -16,7 +16,7 @@ timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 #credentials to connect to Oracle Exadata are masked/hidden
 CONN_INFO = {
     'host': 'xxx',
-    'port': '1521',
+    'port': 1521,
     'user': 'xxx',
     'psw': 'xxx',
     'service': 'xxx'

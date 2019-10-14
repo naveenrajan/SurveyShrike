@@ -5,7 +5,7 @@ This application is buit using the followin tech stack:
   2) Python 3.7.2 - Back End
   3) Oracle Exadata - Database
   4) Oath2.0 - Authentication protocol
-  5) Pyunit test framework for Python unit test
+  5) Behave & Allure test framework for Python tests
   
 The purpose of the application is to help any authenticated user to perform the following operations :
 

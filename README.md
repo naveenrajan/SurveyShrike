@@ -50,6 +50,8 @@ An authenticated admin user can create a form using the following options:
   
   ___
   
+  > To execute the code : Simply open python terminal and execute survey.py with all JS files inside templates folder
+  
 # Workflow:
 
 # Page-1: Login

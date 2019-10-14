@@ -46,7 +46,7 @@ An authenticated admin user can create a form using the following options:
 
 # Page-1: Login
 
-The user authentication is done using the secure OAuth2.0 protocol which uses the Otaka site which helps any application to onboard to Oauth2.
+The user authentication is done using the secure OAuth2.0 protocol which uses the Okta which helps any application to onboard to Oauth2.
 
 # Page-2 : Options
 
@@ -78,3 +78,9 @@ In this page, an admin user can see the results of the survey with details such 
   3) Survey Taken On - Time of submission of the survey
   4) The questions attempted by the user taken the survey
   5) The options submitted for the respective questions by the users.
+  
+ # Testing Framework written using Behave & Allure
+ 
+ > Behave framework identifies the Step function by decorators matching with feature file predicate. For Example, Given predicate in Feature file Scenario searches for step function having decorator "given." Similar matching happens for When and Then. But in the case of 'But,' 'And,' Step function takes decorator same as it's preceding step. For Example, If 'And' comes for Given, matching step function decorator is @given.
+ 
+ 

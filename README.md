@@ -84,7 +84,6 @@ In this page, an admin user can see the results of the survey with details such 
  Behave framework identifies the Step function by decorators matching with feature file predicate. For Example, Given predicate in Feature file Scenario searches for step function having decorator "given." Similar matching happens for When and Then. But in the case of 'But,' 'And,' Step function takes decorator same as it's preceding step. For Example, If 'And' comes for Given, matching step function decorator is @given.
  
  > Execute the following command on command prompt to run our feature file :
- 
- C: \Programs\Python\Python37>behave -f pretty C:\<your projectpath>\ features \feature_files_folder \ Sample_REST_API_Testing.feature 
+C: \Programs\Python\Python37>behave -f pretty C:\<your projectpath>\ features \feature_files_folder \ Sample_REST_API_Testing.feature 
  
  

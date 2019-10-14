@@ -92,6 +92,7 @@ var pane = document.getElementById('pane');
 					addCheckBox();    
     });
 	
+	/* Return heading for question box */
 	function addHeading(){
 	var heading = document.createElement('h4');	
 	questionNumber = questionNumber+1;
@@ -100,21 +101,28 @@ var pane = document.getElementById('pane');
 	heading.classList.add("bold");
 	return heading;
 	};
+	
+	/* Return input field type for question box */
 	function getFieldType(type){
 	var fieldType = document.createElement('p');	
 	fieldType.innerHTML = "Input Field: "+type;	
 	fieldType.classList.add("w3-text-teal");
 	return fieldType;
 	};
+	
+	/* Returns margin */
 	function margin(){
 	var margin = document.createElement('hr');
 	return margin;
 	}
+	
+	/* Returns linebreak */
 	function lineBreak(){
 	var lineBreak = document.createElement('br');
 	return lineBreak;
 	}
 	
+	/* Returns a text area to enter question */
 	function getTextArea(type){
 	var textArea = document.createElement('textarea');
 	textArea.setAttribute("rows","4");
@@ -124,12 +132,14 @@ var pane = document.getElementById('pane');
 	return textArea;
 	};
 	
+	/* Add Question to the pane */
 	function addQuestion(type,typename){
 	pane.appendChild(addHeading());	
 	pane.appendChild(getFieldType(typename));	
 	pane.appendChild(getTextArea(type));
 	}
 	
+	/* Returns a text box for options */
 	function getTextBox(isAdd,qnNum){
 	var textBox = document.createElement('input');
 		textBox.setAttribute("type","text");
@@ -141,6 +151,7 @@ var pane = document.getElementById('pane');
 		return textBox;
 	};
 	
+	/* Returns a add button for options */
 	function getAddButton(qnNum){
 	var plusBtn = document.createElement('input');
 		plusBtn.setAttribute("type","button");
@@ -150,18 +161,7 @@ var pane = document.getElementById('pane');
 		return plusBtn;
 	};
 	
-	function getRemoveButton(){
-	var removeBtn = document.createElement('input');
-		removeBtn.setAttribute("type","button");
-		removeBtn.setAttribute("id","remove");
-		removeBtn.setAttribute("value","-");
-		return removeBtn;
-		};
-		function getDiv(){
-		var div = document.createElement('div');
-		return div;
-		}
-		
+	/* For additional options */
 	function getDynamicTextBox(div,qnNum,isAdd){	
 	var currentDiv = div;
 	currentDiv.appendChild(getTextBox(isAdd,qnNum));
@@ -173,24 +173,28 @@ var pane = document.getElementById('pane');
 	return currentDiv;
 	};
 	
+	/* Event to add additional options */
 	function plusBtnEventListener(){					
 	var div = document.getElementById(this.id).parentElement;
     var qnNum = this.id.slice(-1);	
 	getDynamicTextBox(div,qnNum,false);				    
     };
 	
+	/* Function for single line input */
 	function addSli(){
 	addQuestion("sli","Single Line Input");	
 	pane.appendChild(lineBreak());
 	pane.appendChild(margin());		
 	};
 	
+	/* Function for multi line input */
 	function addMli(){
 	addQuestion("mli","Multi Line Input");	
 	pane.appendChild(lineBreak());
 	pane.appendChild(margin());	
 	};
 	
+	/* Function for dropdown */
 	function addDropdown(){
 	addQuestion("dd","Dropdown");	
 	var textBoxContainer = getDiv();
@@ -200,6 +204,7 @@ var pane = document.getElementById('pane');
 	pane.appendChild(margin());
 	};
 	
+	/* Function for radiobutton */
 	function addRadio(){
 	addQuestion("r","Radio");	
 	var textBoxContainer = getDiv();
@@ -209,6 +214,7 @@ var pane = document.getElementById('pane');
 	pane.appendChild(margin());
 	};
 	
+	/* Function for checkbox */
 	function addCheckBox(){
 	addQuestion("cb","Checkbox");	
 	var textBoxContainer = getDiv();

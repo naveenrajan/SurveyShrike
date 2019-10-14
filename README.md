@@ -7,7 +7,7 @@ This application is buit using the followin tech stack:
   4) Oath2.0 - Authentication protocol
   5) Behave & Allure test framework for Python tests
   
-![Folder Structure](https://github.com/naveenrajan/SurveyShrike/tree/master/Templates\Folder structure.png)
+![Folder Structure](https://github.com/naveenrajan/SurveyShrike/blob/master/Templates/Folder_structure.png)
   
 The purpose of the application is to help any authenticated user to perform the following operations :
 

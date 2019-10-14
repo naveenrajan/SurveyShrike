@@ -85,6 +85,6 @@ In this page, an admin user can see the results of the survey with details such 
  
  > Execute the following command on command prompt to run our feature file
 
-C: \Programs\Python\Python37>behave -f pretty C:\<your project path>\features\feature_files_folder\Sample_REST_API_Testing.feature
+> C: \Programs\Python\Python37>behave -f pretty C:\<your project path>\features\feature_files_folder\Sample_REST_API_Testing.feature
  
  
